@@ -1,0 +1,89 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: clone-src
+spec:
+  workspaces:
+  - name: src
+    mountPath: /workspace/src
+  steps:
+  - name: git-clone
+    image: alpine/git
+    script: |
+
+      touch empty.txt
+      cat << EOF > empty.txt
+      echo "hello src test 1"
+      EOF
+
+      cp empty.txt $(workspaces.src.path)
+      echo "present dir & file"
+      pwd
+      ls
+      cd ..
+      echo "present dir & file"
+      pwd
+      ls
+      echo "find empty.txt"
+      cd workspace/src
+      ls
+      echo "find empty.txt"
+
+---
+
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: read-src
+spec:
+  workspaces:
+  - name: src
+  steps:
+  - name: read
+    image: alpine
+    workingDir: /workspace/src
+    script: |
+      pwd
+      ls
+      cat empty.txt
+
+---
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: get-src
+spec:
+  workspaces:
+  - name: shared-src
+  tasks:
+  - name: fetch-the-src
+    taskRef:
+      name: clone-src
+    workspaces:
+    - name: src
+      workspace: shared-src
+  - name: print-src
+    taskRef:
+      name: read-src
+    runAfter: 
+      - fetch-the-src
+    workspaces:
+    - name: src
+      workspace: shared-src
+
+---
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: fetch-src-
+spec:
+  pipelineRef:
+    name: get-src
+  workspaces:
+  - name: shared-src
+    persistentVolumeClaim:
+      claimName: src-repo
+
+#kubens check namespace
+#kubectl apply -f deploy tekton task an pipeline ....
+
