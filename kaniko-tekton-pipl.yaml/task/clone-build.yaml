@@ -1,0 +1,92 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: clone-src
+spec:
+  params:
+    - name: src_url
+      default: <gitea_src_repo_url>
+      type: string
+    - name: ci_sub_dir
+      default: ci-hello-world
+      type: string
+  workspaces:
+  - name: src
+    mountPath: /workspace/src
+  steps:
+  - name: git-clone
+    image: alpine/git
+    script: |
+
+      git clone $(params.src_url)
+      cp -r $(params.ci_sub_dir)/* $(workspaces.src.path)
+      
+      cd ..
+      cd $(workspaces.src.path)
+      echo "list files in src"
+      ls
+
+---
+
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: clone-manifests
+spec:
+  params:
+    - name: manifests_url
+      default: <gitea_manifests_repo_url>
+      type: string
+    - name: cd_sub_dir
+      default: cd-hello-world
+      type: string
+  workspaces:
+  - name: src
+  steps:
+  - name: clone-manifests
+    image: alpine/git
+    workingDir: /workspace/src
+    script: |
+      
+      if [! -d $(params.cd_sub_dir)]
+      then
+        git clone $(params.manifests_url)
+        cd $(params.cd_sub_dir)
+        ls
+      else
+        rm -r $(params.cd_sub_dir)
+        git clone $(params.manifests_url)
+        cd $(params.cd_sub_dir)
+        ls
+      fi
+---
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: kaniko-build-push
+spec:
+  params:
+    - name: path_to_dockerfile
+      type: string
+      default: ./Dockerfile
+    - name: path_to_context
+      type: string
+      default: .
+    - name: harbor_registry_url
+      type: string
+      default: <harbor_image_registry>
+  workspaces:
+  - name: src
+  steps:
+  - name: kaniko-build-push
+    image: gcr.io/kaniko-project/executor:v0.17.1
+    workingDir: /workspace/src
+    env:
+      - name: "DOCKER_CONFIG"
+        value: "/tekton/home/.docker/"
+    command:
+      - /kaniko/executor
+    args:
+      - --dockerfile=$(params.path_to_dockerfile)
+      - --context=$(params.path_to_context)
+      - --destination=$(params.harbor_registry_url)
