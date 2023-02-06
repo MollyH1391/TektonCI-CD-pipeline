@@ -121,6 +121,6 @@ The pipeline will start after the command above and the details is presented in 
 
 
 ## Check the pushed image in harbor registry
-![]()
+![pushed-image-harbor-registry](https://github.com/MollyH1391/TektonCI-CD-pipeline/blob/f531e19e5f9ffbe3dfefbdea4acd04150c517497/kaniko-tekton-pipl/GUI/harbor.png)
 
 
