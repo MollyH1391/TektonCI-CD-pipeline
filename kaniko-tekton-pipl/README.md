@@ -32,7 +32,9 @@ task.tekton.dev/kaniko-build-push configured
 ## Tekton pipeline
 path: TektonCI-CD-pipeline/kaniko-tekton-pipl/pipeline/
 
-Mount tasks sequentially on a pipeline 
+Mount tasks sequentially on a pipeline .
+
+The created pipeline will look similar to the image below.
 
 ![tekton-pipeline]()
 
@@ -98,7 +100,24 @@ kaniko-service-account   1         43h
 ```
 
 ## Create pipelinerun
-path: 
+path: TektonCI-CD-pipeline/kaniko-tekton-pipl/pipelinerun/
+
+- Mount serviceaccount to pipelinerun
+- Create a pipelinerun
+
+```bash
+kubectl create -f run-tekton-kaniko-pipl.yaml
+
+pipelinerun.tekton.dev/fetch-src-2gzpj created
+```
+
+The pipeline will start after the command above and the details is presented in the images below.
+
+![tekton-pipelinerun-first-step]()
+
+![tekton-pipelinerun-second-step]()
+
+![tekton-pipelinerun-thrid-step]()
 
 
 
