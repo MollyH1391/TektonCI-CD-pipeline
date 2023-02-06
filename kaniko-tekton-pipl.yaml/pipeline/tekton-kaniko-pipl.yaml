@@ -1,0 +1,30 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: get-src
+spec:
+  workspaces:
+  - name: shared-src
+  tasks:
+  - name: fetch-src
+    taskRef:
+      name: clone-src
+    workspaces:
+    - name: src
+      workspace: shared-src
+  - name: fetch-manifests
+    taskRef:
+      name: clone-manifests
+    runAfter: 
+      - fetch-src
+    workspaces:
+    - name: src
+      workspace: shared-src
+  - name: kaniko-build
+    taskRef:
+      name: kaniko-build-push
+    runAfter: 
+      - fetch-manifests
+    workspaces:
+    - name: src
+      workspace: shared-src
