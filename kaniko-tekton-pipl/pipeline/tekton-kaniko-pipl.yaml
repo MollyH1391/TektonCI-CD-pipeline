@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: get-src
+  name: kaniko-build-push-pipl
 spec:
   workspaces:
   - name: shared-src
