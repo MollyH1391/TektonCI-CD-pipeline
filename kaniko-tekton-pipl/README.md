@@ -120,5 +120,7 @@ The pipeline will start after the command above and the details is presented in 
 ![tekton-pipelinerun-thrid-step](https://github.com/MollyH1391/TektonCI-CD-pipeline/blob/aeba8e5bed5226866e61ad384b8b11dc33ec022c/kaniko-tekton-pipl/GUI/pipl03.png)
 
 
+## Check the pushed image in harbor registry
+![]()
 
 
