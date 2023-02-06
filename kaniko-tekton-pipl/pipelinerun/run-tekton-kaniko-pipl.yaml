@@ -1,0 +1,12 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: fetch-src-
+spec:
+  serviceAccountName: kaniko-service-account
+  pipelineRef:
+    name: kaniko-build-push-pipl
+  workspaces:
+  - name: shared-src
+    persistentVolumeClaim:
+      claimName: src-repo

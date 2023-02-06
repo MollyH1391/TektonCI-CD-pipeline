@@ -34,7 +34,7 @@ path: TektonCI-CD-pipeline/kaniko-tekton-pipl/pipeline/
 
 Mount tasks sequentially on a pipeline 
 
-![]()
+![tekton-pipeline]()
 
 ## Create PVC in kubernetes cluster for sharing volumes between tasks
 ```yaml
@@ -97,7 +97,8 @@ default                  0         47h
 kaniko-service-account   1         43h
 ```
 
-
+## Create pipelinerun
+path: 
 
 
 
