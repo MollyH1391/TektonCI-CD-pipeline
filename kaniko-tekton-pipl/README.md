@@ -1,10 +1,10 @@
-# Kaniko-Tekton-CI-CD-pipeline-DEMO
+# Kaniko-Tekton-CI-pipeline-DEMO
 
 ## prerequisite
 - GKE cluster
 - Tekton & Tekton Dashboard
 - a repo that contains ready to containerized source code 
-- a repo tahet contains kubernetes manifests
+- a repo that contains kubernetes manifests
 - Dockerfile
 
 ## Tekton tasks
