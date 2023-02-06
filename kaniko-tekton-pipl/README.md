@@ -36,7 +36,7 @@ Mount tasks sequentially on a pipeline .
 
 The created pipeline will look similar to the image below.
 
-![tekton-pipeline]()
+![tekton-pipeline](https://github.com/MollyH1391/TektonCI-CD-pipeline/blob/aeba8e5bed5226866e61ad384b8b11dc33ec022c/kaniko-tekton-pipl/GUI/pipl.png)
 
 ## Create PVC in kubernetes cluster for sharing volumes between tasks
 ```yaml
@@ -113,11 +113,11 @@ pipelinerun.tekton.dev/fetch-src-2gzpj created
 
 The pipeline will start after the command above and the details is presented in the images below.
 
-![tekton-pipelinerun-first-step]()
+![tekton-pipelinerun-first-step](https://github.com/MollyH1391/TektonCI-CD-pipeline/blob/aeba8e5bed5226866e61ad384b8b11dc33ec022c/kaniko-tekton-pipl/GUI/pipe01.png)
 
-![tekton-pipelinerun-second-step]()
+![tekton-pipelinerun-second-step](https://github.com/MollyH1391/TektonCI-CD-pipeline/blob/aeba8e5bed5226866e61ad384b8b11dc33ec022c/kaniko-tekton-pipl/GUI/pipl02.png)
 
-![tekton-pipelinerun-thrid-step]()
+![tekton-pipelinerun-thrid-step](https://github.com/MollyH1391/TektonCI-CD-pipeline/blob/aeba8e5bed5226866e61ad384b8b11dc33ec022c/kaniko-tekton-pipl/GUI/pipl03.png)
 
 
 
