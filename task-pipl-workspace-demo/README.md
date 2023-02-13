@@ -33,7 +33,6 @@ Result:
 
 ![pipeline-result](https://github.com/MollyH1391/TektonCI-CD-pipeline/blob/5ba6b38069199af71995e9e0763c89a4f1b20389/task-pipl-workspace-demo/GUI/pipeline-result.png)
 
-</section>
 
 ## Utilize the Workspace Subpath
 path: git-clone-workspace-subpath.yaml
