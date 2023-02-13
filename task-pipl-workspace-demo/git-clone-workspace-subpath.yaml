@@ -1,0 +1,65 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: git-clone-list-files
+spec:
+  params:
+  - name: repo-url
+    type: string
+    description: The git repository URL to clone from.
+  - name: branch-name
+    type: string
+    description: The git branch to clone.
+  workspaces:
+  - name: shared-data
+  tasks:
+  - name: fetch-repo
+    taskRef:
+      name: git-clone
+    workspaces:
+    - name: output
+      workspace: shared-data
+    params:
+    - name: url
+      value: $(params.repo-url)
+    - name: revision
+      value: $(params.branch-name)
+  - name: list-files #list files in the src folder
+    runAfter: ["fetch-repo"]
+    workspaces:
+    - name: source
+      workspace: shared-data
+      subPath: src
+    taskSpec:
+      workspaces:
+      - name: source
+      steps:
+      - image: zshusers/zsh:4.3.15
+        script: |
+          #!/usr/bin/env zsh
+          cd workspace/source
+          ls
+
+---
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: run-git-clone-list-files
+spec:
+  pipelineRef:
+    name: git-clone-list-files
+  workspaces:
+  - name: shared-data
+    volumeClaimTemplate:
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
+  params:
+  - name: repo-url
+    value: http://gitea.wingwill.xyz/gitea-admin/tekton-ci-cd.git
+  - name: branch-name
+    value: main
+
