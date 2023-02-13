@@ -24,7 +24,7 @@ spec:
       value: $(params.repo-url)
     - name: revision
       value: $(params.branch-name)
-  - name: list-files #list files in the src folder
+  - name: list-files
     runAfter: ["fetch-repo"]
     workspaces:
     - name: source
@@ -48,6 +48,9 @@ metadata:
 spec:
   pipelineRef:
     name: git-clone-list-files
+  podTemplate:
+    securityContext:
+      fsGroup: 65532
   workspaces:
   - name: shared-data
     volumeClaimTemplate:
