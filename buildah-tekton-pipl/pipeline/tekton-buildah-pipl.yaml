@@ -6,7 +6,7 @@ spec:
   workspaces:
     - name: src-workspace
   tasks:
-    - name: clone-repository
+    - name: fetch-source
       taskRef:
         name: git-clone
       workspaces:
