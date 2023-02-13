@@ -20,4 +20,8 @@ Ensure that the PipelineRun's workspace is mounted to the PVC created previously
 ```bash
 kubectl apply -f demo-pipl.yaml
 ```
+![tasks](https://github.com/MollyH1391/TektonCI-CD-pipeline/blob/5ba6b38069199af71995e9e0763c89a4f1b20389/task-pipl-workspace-demo/GUI/tekton-tasks.png)
+![pipeline](https://github.com/MollyH1391/TektonCI-CD-pipeline/blob/5ba6b38069199af71995e9e0763c89a4f1b20389/task-pipl-workspace-demo/GUI/pipeline.png)
+![pipeline-result](https://github.com/MollyH1391/TektonCI-CD-pipeline/blob/5ba6b38069199af71995e9e0763c89a4f1b20389/task-pipl-workspace-demo/GUI/pipeline-result.png)
+
 
