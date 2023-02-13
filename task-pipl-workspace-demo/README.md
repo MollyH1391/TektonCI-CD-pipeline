@@ -1,10 +1,5 @@
 # TektonCI-CD-pipeline
 
-**Table of content: **
-- [A Simple Workspace Transition in a Tekton Pipeline](#simple-workspace)
-
-
-<section id='simple-workspace' >
 ## A Simple Workspace Transition in a Tekton Pipeline
 path: demo-pipl.yaml
 ### Create a PVC 
