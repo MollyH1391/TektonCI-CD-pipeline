@@ -74,4 +74,6 @@ Add <code>subPath</code> to the pipeline.
           ls
 ```
 
+You will get  a similar look to the below image.
+
 ![subpath-workspace](https://github.com/MollyH1391/TektonCI-CD-pipeline/blob/cd9205c9242f2ea645faa11776f8a5045cf76c56/task-pipl-workspace-demo/GUI/subpath.png)
