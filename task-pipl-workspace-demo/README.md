@@ -1,5 +1,10 @@
 # TektonCI-CD-pipeline
 
+**Table of content: **
+- [A Simple Workspace Transition in a Tekton Pipeline](#simple-workspace)
+
+
+<section id='simple-workspace' >
 ## A Simple Workspace Transition in a Tekton Pipeline
 path: demo-pipl.yaml
 ### Create a PVC 
@@ -28,9 +33,11 @@ Result:
 
 ![pipeline-result](https://github.com/MollyH1391/TektonCI-CD-pipeline/blob/5ba6b38069199af71995e9e0763c89a4f1b20389/task-pipl-workspace-demo/GUI/pipeline-result.png)
 
+</section>
 
 ## Utilize the Workspace Subpath
 path: git-clone-workspace-subpath.yaml
+
 Tasks:
 - git clone
 - list-files
