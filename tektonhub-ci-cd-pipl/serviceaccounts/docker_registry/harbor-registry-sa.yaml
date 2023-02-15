@@ -3,7 +3,7 @@ kind: Secret
 metadata:
   name: basic-user-pass
   annotations:
-    tekton.dev/docker-0: https://harbor.wingwill.xyz 
+    tekton.dev/docker-0: <HARBOR_REGISTRY_url>
 type: kubernetes.io/basic-auth
 stringData:
   username: <HARBOR_REGISTRY_USERNAME>
