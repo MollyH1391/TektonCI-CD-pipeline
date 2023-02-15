@@ -110,6 +110,8 @@ kubectl get pods | grep nodejs-hello-world
 
 nodejs-hello-world-54d98b7b78-hgc9m               1/1     Running     0          3h28m
 ```
+![tekton-pipeline](https://github.com/MollyH1391/TektonCI-CD-pipeline/blob/846855ff050f70a00373b695b4f16951c6e37701/tektonhub-ci-cd-pipl/GUI/tekton-pipelinerun.png)
 
+![nodejs-app]()
 
 
