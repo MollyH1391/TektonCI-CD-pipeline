@@ -1,0 +1,18 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: tektonhub-ci-cd-pipeline-run
+spec:
+  serviceAccountName: kaniko-service-account
+  pipelineRef:
+    name: tektonhub-ci-cd-pipeline
+  podTemplate:
+    securityContext:
+      fsGroup: 65532
+  workspaces:
+  - name: shared-workspace
+    persistentvolumeclaim:
+      claimName: kaniko-source-pvc
+  params:
+  - name: image
+    value: <HARBOR_REGISTRY_URL>/molly/nodejs-hello-world

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: basic-user-pass
+  annotations:
+    tekton.dev/docker-0: https://harbor.wingwill.xyz 
+type: kubernetes.io/basic-auth
+stringData:
+  username: <HARBOR_REGISTRY_USERNAME>
+  password: <HARBOR_REGISTRY_PASSWORD>
+
+---
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: kaniko-service-account
+secrets:
+  - name: basic-user-pass
