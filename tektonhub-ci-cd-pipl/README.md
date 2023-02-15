@@ -112,6 +112,6 @@ nodejs-hello-world-54d98b7b78-hgc9m               1/1     Running     0         
 ```
 ![tekton-pipeline](https://github.com/MollyH1391/TektonCI-CD-pipeline/blob/846855ff050f70a00373b695b4f16951c6e37701/tektonhub-ci-cd-pipl/GUI/tekton-pipelinerun.png)
 
-![nodejs-app]()
+![nodejs-app](https://github.com/MollyH1391/TektonCI-CD-pipeline/blob/521520a7f7c3e68a893bc0903867e33800192af8/tektonhub-ci-cd-pipl/GUI/nodejs-app.png)
 
 
