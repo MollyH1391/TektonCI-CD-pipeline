@@ -1,5 +1,6 @@
 # Building a CI/CD Pipeline for Deploying an Application to GKE with TektonHub Tasks
-This document demonstrates how to deploy a Node.js app to a Kubernetes cluster using Tekton tasks and pipelines.
+This article presents the use of Tekton tasks and pipelines to deploy a Node.js app to a GKE cluster. The steps involve configuring a workspace and PVC for file transfer between different tasks, creating a service account and binding secrets and roles to grant permissions for pushing and pulling images from a Harbor registry, and granting permissions for deploying the application to the GKE cluster. Finally, the tasks are sequenced and configured into a pipeline, and the pipeline is instantiated and executed on-cluster using Pipelinerun to complete the application deployment.
+
 ## Prerequisite
 - A GKE cluster
 - Tekton set up in the cluster
@@ -10,6 +11,7 @@ This document demonstrates how to deploy a Node.js app to a Kubernetes cluster u
 - Create a secret to allow Tekton pipeline to pull images from the Harbor registry
 - Grant Kubernetes cluster deployment permission to a service account with a cluster role binding
 - Configure a Tekton pipeline and pipelinerun
+- Result
 
 ### Create a PVC for data transfer between Tekton tasks
 This PVC must be bound to the workspace of the pipelinerun to enable data transfer between tasks.
@@ -96,9 +98,10 @@ subjects:
 
 - pipelinerun: [run-tektonhub-ci-cd-pipeline.yaml](https://github.com/MollyH1391/TektonCI-CD-pipeline/blob/8eef94df49c096f1ef3508bd8364d204af22bec8/tektonhub-ci-cd-pipl/pipelines/run-tektonhub-ci-cd-pipeline.yaml)
     - Bind the service account and PVC
+    - Instantiate and execute pipeline on cluster
 
-### Results:
-The following output can be expected.
+### Result
+The following outcome can be expected: a Node.js app deployed to a GKE cluster, and its deployment status can be confirmed using the kubectl command.
 
 ```bash
  kubectl get deployments.apps nodejs-hello-world
