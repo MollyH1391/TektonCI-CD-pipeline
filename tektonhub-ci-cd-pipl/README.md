@@ -100,7 +100,7 @@ subjects:
     - Bind the service account and PVC
     - Instantiate and execute pipeline on cluster
 
-### Result
+### Deployment Result
 The following outcome can be expected: a Node.js app deployed to a GKE cluster, and its deployment status can be confirmed using the kubectl command.
 
 ```bash
