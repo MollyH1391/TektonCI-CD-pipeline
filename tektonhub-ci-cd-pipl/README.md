@@ -11,7 +11,7 @@ This article presents the use of Tekton tasks and pipelines to deploy a Node.js 
 - [Create a secret to allow Tekton pipeline to pull images from the Harbor registry](https://github.com/MollyH1391/TektonCI-CD-pipeline/tree/main/tektonhub-ci-cd-pipl#create-a-secret-to-allow-tekton-pipeline-to-pull-images-from-the-harbor-registry)
 - [Grant Kubernetes cluster deployment permission to a service account with a cluster role binding](https://github.com/MollyH1391/TektonCI-CD-pipeline/tree/main/tektonhub-ci-cd-pipl#grant-kubernetes-cluster-deployment-permission-to-a-service-account-with-a-cluster-role-binding)
 - [Configure a Tekton pipeline and pipelinerun](https://github.com/MollyH1391/TektonCI-CD-pipeline/tree/main/tektonhub-ci-cd-pipl#configure-a-tekton-pipeline-and-pipelinerun)
-- [Deployment Result](https://github.com/MollyH1391/TektonCI-CD-pipeline/tree/main/tektonhub-ci-cd-pipl#result)
+- [Deployment Result](https://github.com/MollyH1391/TektonCI-CD-pipeline/tree/main/tektonhub-ci-cd-pipl#deployment-result)
 
 ### Create a PVC for data transfer between Tekton tasks
 This PVC must be bound to the workspace of the pipelinerun to enable data transfer between tasks.
