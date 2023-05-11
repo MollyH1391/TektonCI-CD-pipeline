@@ -6,12 +6,12 @@ This article presents the use of Tekton tasks and pipelines to deploy a Node.js 
 - Tekton set up in the cluster
 
 ## Steps
-- Create a PVC for data transfer between Tekton tasks
-- Create a secret for Tekton pipeline to push Kaniko-built images to Harbor registry and bind to a service account
-- Create a secret to allow Tekton pipeline to pull images from the Harbor registry
-- Grant Kubernetes cluster deployment permission to a service account with a cluster role binding
-- Configure a Tekton pipeline and pipelinerun
-- Result
+- [Create a PVC for data transfer between Tekton tasks](https://github.com/MollyH1391/TektonCI-CD-pipeline/tree/main/tektonhub-ci-cd-pipl#create-a-pvc-for-data-transfer-between-tekton-tasks)
+- [Create a secret for Tekton pipeline to push Kaniko-built images to Harbor registry and bind to a service account](https://github.com/MollyH1391/TektonCI-CD-pipeline/tree/main/tektonhub-ci-cd-pipl#create-a-secret-for-tekton-pipeline-to-push-kaniko-built-images-to-harbor-registry-and-bind-to-a-service-account)
+- [Create a secret to allow Tekton pipeline to pull images from the Harbor registry](https://github.com/MollyH1391/TektonCI-CD-pipeline/tree/main/tektonhub-ci-cd-pipl#create-a-secret-to-allow-tekton-pipeline-to-pull-images-from-the-harbor-registry)
+- [Grant Kubernetes cluster deployment permission to a service account with a cluster role binding](https://github.com/MollyH1391/TektonCI-CD-pipeline/tree/main/tektonhub-ci-cd-pipl#grant-kubernetes-cluster-deployment-permission-to-a-service-account-with-a-cluster-role-binding)
+- [Configure a Tekton pipeline and pipelinerun](https://github.com/MollyH1391/TektonCI-CD-pipeline/tree/main/tektonhub-ci-cd-pipl#configure-a-tekton-pipeline-and-pipelinerun)
+- [Deployment Result]()
 
 ### Create a PVC for data transfer between Tekton tasks
 This PVC must be bound to the workspace of the pipelinerun to enable data transfer between tasks.
